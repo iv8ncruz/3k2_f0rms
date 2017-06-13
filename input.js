@@ -1,4 +1,3 @@
-<script type="text/javascript">
 var cidcalc,
 ciddefault = "7010B000001gGJH";
 if ((getParameterByName("utm_medium") &&
@@ -49,4 +48,3 @@ u_src: getParameterByName("utm_source") || getParameterByName("cms_source") || "
 };
 //Send
 createresourceform(getval);
-</script>

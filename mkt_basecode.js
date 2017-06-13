@@ -20,68 +20,46 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 // USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-//Edited for genesys.com use by Patrick Cruz SEARCH FOR "GENESYS_CUSTOM"
+//Edited for genesys.com use by Patrick Cruz SEARCH FOR "PCRUZ_CUSTOM"
 
-function EventEmitter() {
-  this._events = this._events || {};
-  this._maxListeners = this._maxListeners || undefined;
-}
+function EventEmitter() {this._events = this._events || {};this._maxListeners = this._maxListeners || undefined;}
 module.exports = EventEmitter;
-
 // Backwards-compat with node 0.10.x
 EventEmitter.EventEmitter = EventEmitter;
-
 EventEmitter.prototype._events = undefined;
 EventEmitter.prototype._maxListeners = undefined;
-
 // By default EventEmitters will print a warning if more than 10 listeners are
 // added to it. This is a useful default which helps finding memory leaks.
 EventEmitter.defaultMaxListeners = 10;
-
 // Obviously not all Emitters should be limited to 10. This function allows
 // that to be increased. Set to zero for unlimited.
 EventEmitter.prototype.setMaxListeners = function(n) {
-  if (!isNumber(n) || n < 0 || isNaN(n))
+    if (!isNumber(n) || n < 0 || isNaN(n))
     throw TypeError('n must be a positive number');
-  this._maxListeners = n;
-  return this;
+    this._maxListeners = n;return this;
 };
 
 EventEmitter.prototype.emit = function(type) {
   var er, handler, len, args, i, listeners;
-
   if (!this._events)
-    this._events = {};
-
+      this._events = {};
   // If there is no 'error' event listener then throw.
   if (type === 'error') {
-    if (!this._events.error ||
-        (isObject(this._events.error) && !this._events.error.length)) {
+    if (!this._events.error || (isObject(this._events.error) && !this._events.error.length)) {
       er = arguments[1];
-      if (er instanceof Error) {
-        throw er; // Unhandled 'error' event
-      }
-      throw TypeError('Uncaught, unspecified "error" event.');
-    }
+      if (er instanceof Error) {throw er; // Unhandled 'error' event}
+      throw TypeError('Uncaught, unspecified "error" event.');}
   }
 
   handler = this._events[type];
-
   if (isUndefined(handler))
     return false;
-
   if (isFunction(handler)) {
     switch (arguments.length) {
       // fast cases
-      case 1:
-        handler.call(this);
-        break;
-      case 2:
-        handler.call(this, arguments[1]);
-        break;
-      case 3:
-        handler.call(this, arguments[1], arguments[2]);
-        break;
+      case 1:handler.call(this);break;
+      case 2:handler.call(this, arguments[1]);break;
+      case 3:handler.call(this, arguments[1], arguments[2]);break;
       // slower
       default:
         len = arguments.length;
@@ -3768,14 +3746,14 @@ var Form = function (formData, modernizr, opts){
       elem
     ]);
   };
-  //GENESYS_CUSTOM
+  //PCRUZ_CUSTOM
   var addFormClasses = function (formElem){
     //check if the form is known enabled.
     var KnownEnabled = formData.ProcessOptions.knownLead.template;
       //Add class if the form is known enabled.
       if (KnownEnabled){var imknown=' known-form';} else {var imknown='';}
     //Marketo Basic Add Class
-    formElem.addClass("mktoForm mktoHasWidth mktoLayout"+ cap(formData.Layout || "left") + (modernizr.csschecked ? "" : " mktoNoCheckedSupport")+ imknown);
+    formElem.addClass("mktoForm "+ imknown);
     if(oldIe){
       formElem.addClass(oldIe);
     }
@@ -3830,7 +3808,7 @@ var Form = function (formData, modernizr, opts){
     var u = "";
     if(data){
 
-        //GENESYS_CUSTOM - fix for 2.0 breaking on submit
+        //PCRUZ_CUSTOM - fix for 2.0 breaking on submit
 
         if (data.followUpUrl === null){data.followUpUrl = "";}
       if(typeof formData.FormFollowup == "string"){
@@ -3974,7 +3952,7 @@ var Form = function (formData, modernizr, opts){
     });
     return btn;
   };
-//GENESYS_CUSTOM NO NEED TO ADD 'NOT YOU' BUTTON. ADDED ON THE FORM ALREADY.
+//PCRUZ_CUSTOM NO NEED TO ADD 'NOT YOU' BUTTON. ADDED ON THE FORM ALREADY.
   var renderNotYouButton = function (attrs){
     //return $b('#deletemyrecord').click(
      // function (){
@@ -3984,7 +3962,7 @@ var Form = function (formData, modernizr, opts){
   };
 
 
-  //GENESYS_CUSTOM delete cookies on the browser.
+  //PCRUZ_CUSTOM delete cookies on the browser.
   $(".deletemyrecord").click(function(){
       resetallmydata();
   });
@@ -4586,7 +4564,7 @@ forms2.newForm = function (formData, callback){
   //We have to fetch the known lead info if progressive profiling is enabled and
   //If we have a "custom" type knownLead, we'll end up rendering a template instead of a form.
 
-  //GENESYS_CUSTOM EDITED KNOWN FUNCTIONS
+  //PCRUZ_CUSTOM EDITED KNOWN FUNCTIONS
   var hasProfiling = po && po.profiling && po.profiling.isEnabled;
   var isCustomKnowLeadTypeAndHasMunchkin = po && po.knownLead && po.knownLead.type == "custom" && formData.munchkinId;
   if(isCustomKnowLeadTypeAndHasMunchkin || hasProfiling){
