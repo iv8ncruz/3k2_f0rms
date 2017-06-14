@@ -32,102 +32,57 @@ if (Cfirst.match(/^[\w\d]+[\w\s\d]+/) && Clast.match(/^[\w\d]+[\w\s\d]+/)) {$('#
 });
 
 if (obj.action == "page") {
-if (obj.tyfolder) {var tyfolder = obj.tyfolder;} else {var tyfolder = "/resource-thank-you/";}
-form.onSuccess(function (values, followUpUrl) {make_gen_mkto();
 
-if (obj.bingtrack) {window.uetq = window.uetq || [];window.uetq.push({'ea': 'Form Submitted','el': obj.bingtrack});}
-
-dataLayer.push({'event': 'marketo-2.0-form-submit-valid','eventCategory': 'landing-page','eventAction': 'form-submit','eventLabel': obj.page_url,'resourceType': obj.type});
-
+form.onSuccess(function (values, followUpUrl) {
+make_gen_mkto();
+uetq_dl(obj.bingtrack);
+ga_dl('marketo-2.0-form-submit-valid','landing-page','form-submit',obj.page_url,obj.type);
 setTimeout(function () {
+if (obj.tyfolder) {var tyfolder = obj.tyfolder;} else {var tyfolder = "/resource-thank-you/";}
 var ty_f_link = "http://www.genesys.com" + obj.lang + tyfolder + obj.page_url;
-
-if(ty_f_link.indexOf('?') != -1){var XYZ = "&";}else{var XYZ = "?";};
-
-var Add_query = "";
-if (obj.ga_c_label){Add_query = Add_query+XYZ+"gcl="+obj.ga_c_label;}
-if (obj.ga_c_id){Add_query = Add_query+"&gci="+obj.ga_c_i;}
-
-location.href = ty_f_link+Add_query;
-}, 200);
-return false;});
+location.href = ty_f_link;
+}, 200);return false;
+});
 
 } else if (obj.action == "inline") {
+
 form.onSuccess(function () {
 make_gen_mkto();
-if (obj.bingtrack) {
-window.uetq = window.uetq || [];
-window.uetq.push({
-'ea': 'Form Submitted',
-'el': obj.bingtrack
-});
-}
-
-if (obj.successCallBack){
-obj.successCallBack();
-}
-
-return dataLayer.push({
-'event': 'marketo-2.0-form-submit-valid',
-'eventCategory': 'landing-page',
-'eventAction': 'form-submit',
-'eventLabel': obj.page_url,
-'resourceType': obj.type
-}), setTimeout(function () {
+uetq_dl(obj.bingtrack);
+ga_dl('marketo-2.0-form-submit-valid','landing-page','form-submit',obj.page_url,obj.type);
+if (obj.successCallBack){obj.successCallBack();}
+setTimeout(function () {
 form.getFormElem().hide(), $("#mktoForm_" + obj.fid + obj.inlinety).show()
-}, 200), !1;
+}, 200);
 });
+
 } else if (obj.action == "inline-webinar") {
+
 form.onSuccess(function () {
 make_gen_mkto();
-if (obj.bingtrack) {
-window.uetq = window.uetq || [];
-window.uetq.push({
-'ea': 'Form Submitted',
-'el': obj.bingtrack
-});
-}
-return dataLayer.push({
-'event': 'marketo-2.0-form-submit-valid',
-'eventCategory': 'landing-page',
-'eventAction': 'form-submit',
-'eventLabel': obj.page_url,
-'resourceType': obj.type
-}), setTimeout(function () {
+uetq_dl(obj.bingtrack);
+ga_dl('marketo-2.0-form-submit-valid','landing-page','form-submit',obj.page_url,obj.type);
+setTimeout(function () {
 form.getFormElem().hide(), $("#mktoForm_" + obj.inlinety).show();
-
 var getcontentheight = $('#cboxLoadedContent .form-col').innerHeight();
 $('#cboxLoadedContent').height(getcontentheight);
 var getcont = $('#cboxLoadedContent').outerHeight(true);
-//$('#cboxContent,#cboxMiddleLeft,#cboxMiddleRight').height(getcont);
-//$('#colorbox,#cboxWrapper').height(getcont+42);
-$('#cboxContent,#cboxMiddleLeft,#cboxMiddleRight').animate({
-height: getcont
-}, {
-duration: 500,
-queue: false
+$('#cboxContent,#cboxMiddleLeft,#cboxMiddleRight').animate({height: getcont}, {duration: 500,queue: false});
+$('#colorbox,#cboxWrapper').animate({height: getcont + 42}, {duration: 500,queue: false});
+var getbox = $('#colorbox').outerHeight(true),boxofset = $('#colorbox').offset();
+$('#colorbox').animate({top: boxofset.top - (getbox + 42) / 2}, {duration: 500,queue: false});
+}, 200);
 });
-$('#colorbox,#cboxWrapper').animate({
-height: getcont + 42
-}, {
-duration: 500,
-queue: false
-});
-var getbox = $('#colorbox').outerHeight(true);
-var boxofset = $('#colorbox').offset();
-$('#colorbox').animate({
-top: boxofset.top - (getbox + 42) / 2
-}, {
-duration: 500,
-queue: false
-});
-}, 200), !1;
-});
-}
-});
+
 }
 
-function Qcheck(e){e=e.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");var c=new RegExp("[\\?&]"+e+"=([^&#]*)").exec(location.search);return null===c?"":decodeURIComponent(c[1].replace(/\+/g," "))}
-function make_gen_mkto(){var e=$(".known-form #Email").val(),o=$(".known-form #Country__c").val(),n=$(".known-form #StateProvince__c").val(),t=new Date;t.setTime(t.getTime()+31536e6),e&&(document.cookie="gen_mkto_e="+e+";expires="+t.toUTCString()+";domain=.genesys.com;path=/;"),o&&(document.cookie="gen_mkto_c="+o+";expires="+t.toUTCString()+";domain=.genesys.com;path=/;"),n&&(document.cookie="gen_mkto_s="+n+";expires="+t.toUTCString()+";domain=.genesys.com;path=/;")}
-function getCookie(t){for(var n=t+"=",r=document.cookie.split(";"),e=0;e<r.length;e++){for(var i=r[e];" "===i.charAt(0);)i=i.substring(1);if(0===i.indexOf(n))return i.substring(n.length,i.length)}return""}
-function getGaClientId(t){try{var e,n,r=ga.getAll();for(e=0,n=r.length;e<n;e+=1)if(r[e].get("trackingId")===t)return r[e].get("clientId")}catch(t){}return"false"}
+});
+
+}
+
+function uetq_dl(a){a&&(window.uetq=window.uetq||[],window.uetq.push({ea:"Form Submitted",el:a}))}
+function ga_dl(a,b,c,d,e){dataLayer.push({event:a,eventCategory:b,eventAction:c,eventLabel:d,resourceType:e})}
+function Qcheck(a){a=a.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");var b=new RegExp("[\\?&]"+a+"=([^&#]*)").exec(location.search);return null===b?"":decodeURIComponent(b[1].replace(/\+/g," "))}
+function make_gen_mkto(){var a=$(".known-form #Email").val(),b=$(".known-form #Country__c").val(),c=$(".known-form #StateProvince__c").val(),d=new Date;d.setTime(d.getTime()+31536e6),a&&(document.cookie="gen_mkto_e="+a+";expires="+d.toUTCString()+";domain=.genesys.com;path=/;"),b&&(document.cookie="gen_mkto_c="+b+";expires="+d.toUTCString()+";domain=.genesys.com;path=/;"),c&&(document.cookie="gen_mkto_s="+c+";expires="+d.toUTCString()+";domain=.genesys.com;path=/;")}
+function getCookie(a){for(var b=a+"=",c=document.cookie.split(";"),d=0;d<c.length;d++){for(var e=c[d];" "===e.charAt(0);)e=e.substring(1);if(0===e.indexOf(b))return e.substring(b.length,e.length)}return""}
+function getGaClientId(a){try{var b,c,d=ga.getAll();for(b=0,c=d.length;b<c;b+=1)if(d[b].get("trackingId")===a)return d[b].get("clientId")}catch(a){}return"false"}
