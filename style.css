@@ -1,0 +1,26 @@
+form{font-family:inherit!important;font-size:inherit!important;color:inherit!important;width:100%!important}
+form label.mktoLabel{display:none;width:100%!important}
+form label.mktoLabel.must_show_label{display:block;font-size:1em;margin-bottom:1em;color:#4E5054}
+form .mktoOffset{display:none}
+form .mktoAsterix{display:none}
+form .mktoFormRow{width:100%}
+form .mktoFormRow .mktoFieldDescriptor.mktoFormCol{width:100%;margin:0 0 1em!important}
+form .mktoFormRow .mktoFieldDescriptor.mktoFormCol .mktoFieldWrap.mktoRequiredField{float:none;width:100%}
+form .mktoFormRow .mktoFieldDescriptor.mktoFormCol .mktoFieldWrap.mktoRequiredField input{width:100%!important;display:block;padding:.75em 1em;font-size:1em;border:1px solid #D3D3D4}
+form .mktoFormRow .mktoFieldDescriptor.mktoFormCol .mktoFieldWrap.mktoRequiredField .mktoRadioList.mktoHasWidth.mktoRequired{max-width:100%!important;width:auto!important;padding:1em .5em;border:1px solid #D3D3D4}
+form .mktoFormRow .mktoFieldDescriptor.mktoFormCol .mktoFieldWrap.mktoRequiredField .mktoRadioList.mktoHasWidth.mktoRequired input{width:auto!important}
+form .mktoFormRow .mktoFieldDescriptor.mktoFormCol .mktoFieldWrap.mktoRequiredField .mktoRadioList.mktoHasWidth.mktoRequired label{margin-left:1.5em;min-height:inherit;color:#4E5054}
+form .mktoError{display:none!important}
+form .mktoFormRow .mktoFieldDescriptor.mktoFormCol .mktoFieldWrap.mktoRequiredField input.mktoInvalid{border-color:#FF4F1F}
+form .mktoButtonRow{display:inline-block;width:100%;text-align:center}
+form .mktoButtonRow span.mktoButtonWrap.mktoSimple{margin-left:0!important}
+form .mktoButtonRow button.mktoButton{font-size:1em;color:#FFF;text-decoration:none;text-transform:uppercase;border:2px solid #FF4F1F;background:#FF4F1F;padding:1em;width:100%;transition:ALL .3s ease}
+form .mktoButtonRow button.mktoButton:hover{color:#FF4F1F;background:#FFF}
+form .mktoFormRow .mktoFieldDescriptor.mktoFormCol .mktoFieldWrap.mktoRequiredField .mktoRadioList.mktoHasWidth.mktoRequired.mktoInvalid{border-color:#FF4F1F}
+form div#known_person{border-bottom:2px solid #D3D3D4;padding:1em 0;margin-bottom:2em;font-size:1.25em}
+form div#known_person a.deletemyrecord{color:#FF4F1F;font-size:.8em;line-height:1em;cursor:pointer}
+form div#known_person span#person_info{font-weight:100}
+form .mktoFormRow .mktoFieldDescriptor.mktoFormCol .mktoFieldWrap.mktoRequiredField select{border:1px solid #D3D3D4;background:#FFF;background-image:url(http://www.genesys.com/svg/icon_down_cheveron.svg);background-size:1em 1em;background-repeat:no-repeat;background-position:95% center;padding:1em;width:100%!important;color:#4E5054;font-size:1em;border-radius:0;-webkit-appearance:none;-moz-appearance:none;appearance:none}
+form .mktoFormRow .mktoFieldDescriptor.mktoFormCol .mktoFieldWrap.mktoRequiredField select.mktoInvalid{border-color:#FF4F1F}
+form .mktoFormRow .mktoFieldDescriptor.mktoFormCol .mktoFieldWrap.mktoRequiredField input:active,form .mktoFormRow .mktoFieldDescriptor.mktoFormCol .mktoFieldWrap.mktoRequiredField input:focus
+form .mktoFormRow .mktoFieldDescriptor.mktoFormCol .mktoFieldWrap.mktoRequiredField select:active,form .mktoFormRow .mktoFieldDescriptor.mktoFormCol .mktoFieldWrap.mktoRequiredField select:focus{border-color:#4E5054!important}
