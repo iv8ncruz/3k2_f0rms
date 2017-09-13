@@ -1,10 +1,5 @@
 # 3k2_f0rms
-Custom Marketo Form
+## Custom Marketo Form
+### Purpose: Template that's able to support standard and custom forms without the complications of building multiple scripts to support different experiences.
+### Scope: All internal and external pages. All languages.
 
-+ Adjusted to get known forms and add additional requirements before marking the user known.
-+ Adjusted to allow GA tracking to be passed in the form submit.
-+ Adjusted to add Bing tracking to be passed in the form submit.
-+ Adjusted to add UTM values to be passed in the form submit.
-+ Adjusted to add CID values to be passed in the form submit.
-+ Adjusted to add UTM values to be passed in the form submit.
-+ Adjusted to add After Submit Functions.
