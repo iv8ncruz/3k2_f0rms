@@ -26,6 +26,7 @@ All internal and external pages. All languages.
 |gcl|gcl|Google Conversion Label|*eg: ajsndwdnajwdnndaw|
 |cap_id|cap_id|Capptera Tracking ID|*eg 000000000000|
 |cap_key|cap_key|Capptera Key|*eg: ajsndwdnajwdnndaw|
-|pre_html||Optional: Add Content on top of form|*eg: <p>hello</p>|
+|pre_html||Optional: Add Content on top of form|*eg: &lt;p&gt;hello&lt;/p&gt;|
 |SCB|successCallBack|Optional: Add function call page after page submit *ONLY works in action 'inline'|alert('Call Back');|
 ## Addons
+soon
