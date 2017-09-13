@@ -5,6 +5,8 @@ Template that's able to support standard and custom forms without the complicati
 ### Scope
 All internal and external pages. All languages.
 
+## Version
+### 2.9.5
 ## Variables
 | JS Variable | EE Variable | Description | Values |
 |-------------|-------------|-------------|--------|
@@ -30,3 +32,7 @@ All internal and external pages. All languages.
 |SCB|successCallBack|Optional: Add function call page after page submit *ONLY works in action 'inline'|alert('Call Back');|
 ## Addons
 soon
+
+## Changelog
+### Version 2.9.5
+Updated to the latest version.
