@@ -1,4 +1,37 @@
-var d_cid="XXXXXX",u_cont=Qcheck("utm_content")||Qcheck("cms_content"),u_med=Qcheck("utm_medium")||Qcheck("cms_medium"),u_src=Qcheck("utm_source")||Qcheck("cms_source"),q_cid=Qcheck("cid");
-if((u_med && u_src && q_cid)){d_cid = q_cid;}else if((u_med && u_src && !q_cid)){d_cid = "";}else if(q_cid){d_cid = q_cid;}else{d_cid = d_cid;}
-var vx = {accid:"426-TDW-681",fid:"5332",lpid:"11111",cid:d_cid,cmshold:"default",action:"page",lang:"/en",tyfolder:"",page_url:"test",inlinety:"",but:"Read Now",form29:"Yes",type:"test",bingtrack:"",u_med:u_med||"web",u_cont:u_cont||"web",u_src:u_src||"web"};
+var d_cid='',
+bing=Qcheck('bing')||'',
+gci=Qcheck('gci')||'',
+gcl=Qcheck('gcl')||'',
+u_cont=Qcheck('campaign'),
+u_med=Qcheck('utm_medium')||'web',
+u_src=Qcheck('utm_source')||'web',
+q_cid=Qcheck('cid')||'';
+
+if((u_med!='web' && u_src!='web' && q_cid)){d_cid = q_cid;}
+else if((u_med!='web' && u_src!='web' && !q_cid)){d_cid = '';}
+else if(q_cid){d_cid = q_cid;}else{d_cid = d_cid;}
+
+vx = {accid:'426-TDW-681',
+      fid:'5332',//Test Form ID
+      lpid:'00000',//Test LP ID
+      cid:d_cid,
+      cmshold:'default',
+      action:'external',
+      lang:'',
+      tyfolder:'',
+      page_url:'https://github.com/iv8ncruz/3k2_f0rms',
+      inlinety:'',
+      but:'Submit Button',
+      form29:'Yes',
+      type:'test',
+      bingtrack:bing,
+      u_med:u_med||'web',
+      u_cont:u_cont||'web',
+      u_src:u_src||'web',
+      gcl:gcl,
+      gci:gci,
+      cap_id:'',
+      cap_key:''
+     };
+//Run Function
 createresourceform(vx);
