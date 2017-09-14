@@ -31,7 +31,7 @@ All internal and external pages. All languages.
 |pre_html||Optional: Add Content on top of form|*eg: &lt;p&gt;hello&lt;/p&gt;|
 |SCB|successCallBack|Optional: Add function call page after page submit *ONLY works in action 'inline'|alert('Call Back');|
 ## Addons
-soon
++ A/B Test on fields - (inprogress)
 
 ## Changelog
 ### Version 2.9.5
