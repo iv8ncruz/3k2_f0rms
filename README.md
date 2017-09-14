@@ -35,5 +35,5 @@ soon
 
 ## Changelog
 ### Version 2.9.5
-+09/14/2017: Updated main script to support A/B test
-+09/13/2017: Updated to the latest version.
++ 09/14/2017: Updated main script to support A/B test
++ 09/13/2017: Updated to the latest version.
