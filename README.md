@@ -28,6 +28,12 @@ All internal and external pages. All languages.
 |gcl|gcl|Google Conversion Label|*eg: ajsndwdnajwdnndaw|
 |cap_id|cap_id|Capptera Tracking ID|*eg 000000000000|
 |cap_key|cap_key|Capptera Key|*eg: ajsndwdnajwdnndaw|
+|u_med|u_med|UTM Medium||
+|u_src|u_src|UTM Source||
+|u_term|u_term|UTM Term||
+|u_camp|u_camp|UTM Campaign||
+|u_cont|u_cont|UTM Content||
+|matchtype|matchtype|Match Type|b=broad / p=phrase / e=exact|
 |pre_html||Optional: Add Content on top of form|*eg: &lt;p&gt;hello&lt;/p&gt;|
 |SCB|successCallBack|Optional: Add function call page after page submit *ONLY works in action 'inline'|alert('Call Back');|
 ## Addons
